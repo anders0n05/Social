@@ -2,10 +2,14 @@
 //
 
 #include "stdafx.h"
+#include "interface.h"
 
 
 int main()
 {
+
+
+	Mostra_menu();
     return 0;
 }
 
