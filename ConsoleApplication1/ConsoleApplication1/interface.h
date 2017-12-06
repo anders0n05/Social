@@ -42,6 +42,8 @@ void criar_user() {
 	int senha, int senha2;
 	cout << "Nome_usuario";
 	cin >> user;
+
+	//verifica_usuario_iguais() verificar se usuario ja existe;
 	do {
 		cout << "Senha:\t";
 		cin >> senha1;
@@ -54,7 +56,9 @@ void criar_user() {
 	cout << "Nome Completo: \t";
 	cin >> nome_completo;
 	cout << "Data Nascimento:";//continuar data nascimento;
-	
+	cin << dia;
+	cin << mes
+	cin << ano;
 }
 
 
