@@ -9,7 +9,5 @@ int main()
 {
 
 
-	Mostra_menu();
-    return 0;
 }
 

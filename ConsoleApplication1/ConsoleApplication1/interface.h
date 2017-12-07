@@ -3,8 +3,8 @@
 #include<iostream>
 #include<string>
 using namespace std;
-
-int solicita_senha() {
+#include"validacoes.h"
+void solicita_senha() {
 	int senha
 
 
@@ -14,15 +14,18 @@ int solicita_senha() {
 			if (valida_senha() == false) {
 				cout << "Senha Invalida" << endl;
 			}
+			else {
+				timeline();
+			}
 		} while (valida_senha() == false);
-	return senha
+	
 }
-string solicita_usuario() {
+void solicita_usuario() {
 	string usuario;
 	do {
 		cout << "Usuario:\t " << endl;
 		cin >> usuario;
-		return usuario;
+		
 		if (valida_usuario() == true) {//criar funcao que valida o usuario
 			solicita_senha();//caso passe ira solicitar senha
 		}
@@ -35,11 +38,12 @@ string solicita_usuario() {
 void login() {
 
 	solicita_usuario();
+	
 }
 
 void criar_user() {
-	string user, nome_completo;
-	int senha, int senha2;
+	string user, nome_completo, genero;
+	int senha, int senha2, dia_nascimento, mes_nascimento, ano_nascimento;
 	cout << "Nome_usuario";
 	cin >> user;
 
@@ -50,15 +54,37 @@ void criar_user() {
 		cout << "Confirme a senha";
 		cin >> senha2;
 		if (valida_senha_cadastro(senha1, senha2) == false) {
-			cou << "As senhas nao conferem";
+			cout << "As senhas nao conferem";
 		}
 	} while (valida_senha_cadastro(senha1, senha2) == false);
 	cout << "Nome Completo: \t";
 	cin >> nome_completo;
-	cout << "Data Nascimento:";//continuar data nascimento;
-	cin << dia;
-	cin << mes
-	cin << ano;
+	
+	do {
+		cout << "Data Nascimento:";
+		
+		cin >> dia_nascimento;
+		cin >> mes_nascimento;
+		cin >> ano_nascimento;
+		if (!valida_data_nascimento(dia_nascimento, mes_nascimento,ano_nascimento)) {
+			cout << "Voce nao tem idade para criar a rede social" << endl;
+		}
+		else {
+			cout << "Genero:\t" << endl;
+			cin >> genero;
+
+			cout << "Cadastro criado com sucesso" << endl;
+			system("cls");
+			timeline();
+		}
+	
+	} while (!valida_data_nascimento(dia_nascimento, mes_nascimento, ano_nascimento));
+
+	
+	
+
+
+
 }
 
 
