@@ -5,35 +5,24 @@
 #include"operacional.h"
 using namespace std;
 #include"validacoes.h"
-void solicita_senha() {
-	int senha
 
-
-		do {
-			cout << "senha:\t" << endl;
-			cin << senha;
-			if (valida_senha() == false) {
-				cout << "Senha Invalida" << endl;
-			}
-			else {
-				timeline();
-			}
-		} while (valida_senha() == false);
-	
-}
 void solicita_usuario() {
 	string usuario;
+	int senha;
 	do {
 		cout << "Usuario:\t " << endl;
 		cin >> usuario;
-		
-		if (valida_usuario() == true) {//criar funcao que valida o usuario
+		cout << "Digite senha:" << endl;
+		cin >> senha;
+		valida_usuario_logado(usuario, senha,mensagem_erro);
+
+		/*if (valida_usuario() == true) {//criar funcao que valida o usuario
 			solicita_senha();//caso passe ira solicitar senha
 		}
 		else {
 			cout << "Usuario nao existe" << endl;
 		}
-	} while (valida_usuario() == false);
+	} while (valida_usuario() == false);*/
 }
 
 void login() {

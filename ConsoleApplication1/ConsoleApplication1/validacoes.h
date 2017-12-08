@@ -30,7 +30,18 @@ bool valida_data_nascimento(int dia_nascimento, int mes_nascimento, int ano_nasc
 
 }
 
+bool valida_senha_cadastro(senha1, senha2) {
 
+	if (senha1 == senha2) {
+		return true;
+	}
+	return false;
+
+}
+valida_usuario_logado(string usuario,string senha, string &mensagem_erro) {
+
+
+}
 
 
 
