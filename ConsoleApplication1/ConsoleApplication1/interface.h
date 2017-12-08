@@ -2,6 +2,7 @@
 #define INTERFACE_H
 #include<iostream>
 #include<string>
+#include"operacional.h"
 using namespace std;
 #include"validacoes.h"
 void solicita_senha() {
@@ -72,7 +73,7 @@ void criar_user() {
 		else {
 			cout << "Genero:\t" << endl;
 			cin >> genero;
-
+			adiciona_usuario(nome_completo, user, genero, senha1, dia_nascimento, mes_nascimento, ano_nascimento);
 			cout << "Cadastro criado com sucesso" << endl;
 			system("cls");
 			timeline();

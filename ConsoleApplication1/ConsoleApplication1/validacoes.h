@@ -1,6 +1,6 @@
 #ifndef VALIDACOES_H
 #define VALIDACOES_H
-#include <ctime>
+#include <ctime>//usar hora do sistema atual para validar aniversario
 bool valida_data_nascimento(int dia_nascimento, int mes_nascimento, int ano_nascimento) {//funcao responsavel por validar a data de nascimento do usuario com base em dia mes e ano
 
 	time_t t = time(NULL);
