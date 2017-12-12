@@ -9,12 +9,13 @@ using namespace std;
 void solicita_usuario() {
 	string usuario, mensagem_erro;
 	int senha;
+	allusers *funcoes;
 	do {
 		cout << "Usuario:\t " << endl;
 		cin >> usuario;
 		cout << "Digite senha:" << endl;
 		cin >> senha;
-		if (!valida_usuario_logado(usuario, senha, mensagem_erro)) {
+		if (!funcoes->valida_usuario_logado(usuario, senha, mensagem_erro)) {
 			cout << mensagem_erro;
 		}
 		else {
@@ -22,7 +23,7 @@ void solicita_usuario() {
 			timeline();
 		}
 
-	} while (valida_usuario_logado(usuario,senha,mensagem_erro) == false);
+	} while (funcoes->valida_usuario_logado(usuario,senha,mensagem_erro) == false);
 }
 
 void login() {
@@ -34,17 +35,17 @@ void login() {
 void criar_user() {
 	string user, nome_completo, genero, erro;
 	int senha1, senha2, dia_nascimento, mes_nascimento, ano_nascimento;
-	
+	allusers *funcoes;
 	do {
 		cout << "Nome_usuario";
 		cin >> user;
 
-		if (!valida_usuario_nome_igual(user, erro)) {
+		if (!funcoes->valida_usuario_nome_igual(user, erro)) {
 			cout << erro;
 		}
 
 
-	} while (!valida_usuario_nome_igual(user,erro));
+	} while (!funcoes->valida_usuario_nome_igual(user,erro));
 	//verifica_usuario_iguais() verificar se usuario ja existe;
 	do {
 		
