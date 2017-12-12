@@ -1,15 +1,23 @@
+
 #ifndef VALIDACOES_H
 #define VALIDACOES_H
-#include <ctime>//usar hora do sistema atual para validar aniversario
+#include <time.h>//usar hora do sistema atual para validar aniversario
+#include<xloctime>
+#include <string>
+using namespace std;
 bool valida_data_nascimento(int dia_nascimento, int mes_nascimento, int ano_nascimento) {//funcao responsavel por validar a data de nascimento do usuario com base em dia mes e ano
-
+	struct tm newtime;
 	time_t t = time(NULL);
-	tm *ltm = localtime(&t);
+	__time64_t long_time;
+	errno_t err;
+	_time64(&long_time);
+	err = _localtime64_s(&newtime, &long_time);
 
-	int ano = 1900 + ltm->tm_year;
-	int mes = 1 + ltm->tm_mon;
-	int dia = ltm->tm_mday;
-	int hora = ltm->tm_hour;
+
+	int ano = 1900 + newtime.tm_year;
+	int mes = 1 + newtime.tm_mon;
+	int dia = newtime.tm_mday;
+	
 
 	if ((ano - ano_nascimento)>18) {
 		return true;
@@ -30,7 +38,7 @@ bool valida_data_nascimento(int dia_nascimento, int mes_nascimento, int ano_nasc
 
 }
 
-bool valida_senha_cadastro(senha1, senha2) {
+bool valida_senha_cadastro(int senha1, int senha2) {
 
 	if (senha1 == senha2) {
 		return true;
@@ -38,12 +46,72 @@ bool valida_senha_cadastro(senha1, senha2) {
 	return false;
 
 }
-valida_usuario_logado(string usuario,string senha, string &mensagem_erro) {
+bool valida_usuario_logado(string usuario,int senha,string &mensagem_erro) {
+	allusers *unico_user;
+	ElementoUsuario *usuario_cadastrado;
+	if (unico_user->inicio==NULL) {
+				if (usuario != usuario_cadastrado->info->id) {
+					mensagem_erro = "Usuario Nao Existe";
+					return false;
+				}
+				else if (senha != usuario_cadastrado->info->senha) {
+					mensagem_erro = "Usuario Existe, mas a senha esta incorreta";
+					return false;
+				}
+				return true;
+	}
+	else {
+		usuario_cadastrado = unico_user->inicio;
+
+		while (usuario_cadastrado != NULL) {
+			if (usuario_cadastrado->info->id == usuario) {
+						if (usuario_cadastrado->info->senha != senha) {
+							mensagem_erro = "Usuario Existe, mas a senha esta incorreta";
+							return false;
+						}
+						else {
+							return true;
+						}
+			}
+			else {
+				mensagem_erro = "Usuario Nao existe, tente novamente";
+				return false;
+			}
+			usuario_cadastrado = usuario_cadastrado->proximo;
+		}
+	}
 
 
 }
 
+bool valida_usuario_nome_igual(string usuario,string &erro) {
+	allusers *unico_user;
+	ElementoUsuario *usuario_cadastrado;
+	if (unico_user->inicio == NULL) {
+		if (usuario_cadastrado->info->id == usuario) {
+			erro = "Este nome de usuario ja existe";
+			return false;
+		}
+		
+		else {
+			usuario_cadastrado = unico_user->inicio;
 
+			while (usuario_cadastrado != NULL) {
+				if (usuario_cadastrado->info->id == usuario) {
+					
+					erro = "Usuario ja existe";
+					return false;
+				}
+				
+				usuario_cadastrado = usuario_cadastrado->proximo;
+			}
+			return true;
+		}
+	}
+
+
+
+}
 
 
 

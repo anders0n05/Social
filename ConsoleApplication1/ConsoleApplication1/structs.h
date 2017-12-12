@@ -49,7 +49,7 @@ struct allusers {
 			this->inicio = novoUsuario;
 			return;
 		}
-		ElementoUsuario *UserAtual = this->inicio;
+		ElementoUsuario *UserAtual = this->inicio; 
 
 		while (UserAtual != NULL) {
 			if (UserAtual->proximo == NULL) {

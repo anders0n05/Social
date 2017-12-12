@@ -1,8 +1,9 @@
-#ifndef VALIDACOES_H
-#define VALIDACOES_H
+#ifndef OPERACIONAL_H
+#define OPERACIONAL_H
 #include<iostream>
 #include <string>
 #include "structs.h"
+
 using namespace std;
 
 
@@ -16,7 +17,12 @@ void adiciona_usuario(string nome,string id,string genero,int senha,int dia,int 
 
 }
 
+void timeline() {
+	system("cls");
+	cout << endl;
+	cout << "Esta indo bem";
 
+}
 
 
 
