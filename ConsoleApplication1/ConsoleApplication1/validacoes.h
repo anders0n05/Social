@@ -34,7 +34,7 @@ bool valida_data_nascimento(int dia_nascimento, int mes_nascimento, int ano_nasc
 		return false;
 	}
 
-
+	return true;
 
 }
 

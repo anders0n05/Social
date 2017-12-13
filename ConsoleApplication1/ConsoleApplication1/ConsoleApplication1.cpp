@@ -7,7 +7,7 @@
 
 int main()
 {
-
+	Mostra_menu();
 
 }
 

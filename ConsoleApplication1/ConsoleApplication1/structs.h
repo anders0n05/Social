@@ -62,7 +62,7 @@ struct allusers {
 
 	bool valida_usuario_logado(string usuario, int senha, string &mensagem_erro) {
 		
-		if (this->inicio == NULL) {
+	if (this->inicio == NULL) {
 			
 			return true;			
 		}
@@ -85,6 +85,7 @@ struct allusers {
 				}
 				userAtual = userAtual->proximo;
 			}
+			return true;
 		}
 
 
@@ -92,13 +93,13 @@ struct allusers {
 	
 	bool valida_usuario_nome_igual(string usuario, string &erro) {
 		allusers *unico_user;
-		ElementoUsuario *usuario_cadastrado;
 		
+
 		if (this->inicio == NULL) {
 
 			return true;
 		}
-		
+
 		ElementoUsuario *userAtual = this->inicio;
 		while (userAtual != NULL) {
 			if (userAtual->info->id == usuario) {
@@ -107,10 +108,10 @@ struct allusers {
 				return false;
 			}
 			userAtual = userAtual->proximo;
-	    }
+		}
 		return true;
 
-
+	}
 };
 
 

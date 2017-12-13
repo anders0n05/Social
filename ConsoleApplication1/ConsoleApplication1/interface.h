@@ -9,7 +9,8 @@ using namespace std;
 void solicita_usuario() {
 	string usuario, mensagem_erro;
 	int senha;
-	allusers *funcoes;
+
+	allusers *funcoes=NULL;
 	do {
 		cout << "Usuario:\t " << endl;
 		cin >> usuario;
@@ -35,7 +36,10 @@ void login() {
 void criar_user() {
 	string user, nome_completo, genero, erro;
 	int senha1, senha2, dia_nascimento, mes_nascimento, ano_nascimento;
-	allusers *funcoes;
+
+
+
+	allusers *funcoes;//preciso inicializar com algo aqui estou pesquisando
 	do {
 		cout << "Nome_usuario";
 		cin >> user;
