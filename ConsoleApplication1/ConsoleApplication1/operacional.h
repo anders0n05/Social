@@ -8,17 +8,52 @@ using namespace std;
 
 
 
+void inicializa_lista(Usuarios *usuarios) {
 
-void adiciona_usuario(string nome,string id,string genero,int senha,int dia,int mes,int ano) {
-	Usuario *usuario = new Usuario(nome, genero, id, senha, dia, mes, ano);
-	ElementoUsuario *usuarioElemento = new ElementoUsuario(usuario);
-	allusers *usuarios = new allusers(usuarioElemento);
-	usuarios->inserir_Usuario(new ElementoUsuario(new Usuario(nome, genero, id, senha, dia, mes, ano)));
+	usuarios->inicio = NULL;
+	usuarios->final = NULL;
+
 	
 }
 
+void inserir_usuario(Usuarios *usuarios, string usuario, string nome_completo, int senha, int dia, int mes, int ano, char genero){
+User *novo;
+novo = new Usuario(usuario, nome_completo, senha, dia, mes, ano, genero);
+if (usuarios->inicio == NULL) {
+	usuarios->inicio = novo;
+	usuarios->final = novo;
+}
+else {
+
+	usuarios->final->proximo = novo;
+	usuarios->final = novo;
+}
+
+
+
+
+}
+
+void mostrarElementos(Usuarios *allusers) {
+
+	User *aux;
+	aux = allusers->inicio;
+	if (aux == NULL) {
+		cout << "Lista vazia";
+	}
+	else {
+		while (aux != NULL) {
+			cout << "Usuario" << aux->usuario << endl;
+			cout << "Senha" << aux->senha << endl;
+			cout << "Sexo: " << aux->genero << endl;
+			aux = aux->proximo;
+		}
+	}
+
+}
+
 void timeline() {
-	system("cls");
+	
 	cout << endl;
 	cout << "Esta indo bem";
 
