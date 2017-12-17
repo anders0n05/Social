@@ -1,4 +1,4 @@
-#ifndef INTERFACE_H
+#ifndef INTERFACE_H//realizar a interface com o usuario
 #define INTERFACE_H
 #include<iostream>
 #include<string>

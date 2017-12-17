@@ -1,4 +1,4 @@
-#ifndef OPERACIONAL_H
+#ifndef OPERACIONAL_H//responsavel pelas operacoes funcionais do programa
 #define OPERACIONAL_H
 #include<iostream>
 #include <string>

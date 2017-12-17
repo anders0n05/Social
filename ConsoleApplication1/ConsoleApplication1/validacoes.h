@@ -1,5 +1,4 @@
-
-#ifndef VALIDACOES_H
+#ifndef VALIDACOES_H //responsavel por validar as informacoes que o usuario passa
 #define VALIDACOES_H
 #include <time.h>//usar hora do sistema atual para validar aniversario
 #include"interface.h"

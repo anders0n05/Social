@@ -1,4 +1,4 @@
-#ifndef STRUCT_USUARIO_H
+#ifndef STRUCT_USUARIO_H //responsavel por criar o objeto Usuario
 #define STRUCT_USUARIO_H
 #include <string>
 using namespace std;
