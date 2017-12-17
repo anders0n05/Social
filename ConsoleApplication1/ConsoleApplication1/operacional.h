@@ -2,7 +2,7 @@
 #define OPERACIONAL_H
 #include<iostream>
 #include <string>
-#include "structs.h"
+#include "struct_usuario.h"
 
 using namespace std;
 

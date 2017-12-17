@@ -1,5 +1,5 @@
-#ifndef STRUCTS_H
-#define STRUCTS_H
+#ifndef STRUCT_USUARIO_H
+#define STRUCT_USUARIO_H
 #include <string>
 using namespace std;
 typedef struct Usuario {

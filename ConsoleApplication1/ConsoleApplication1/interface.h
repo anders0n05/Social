@@ -20,7 +20,7 @@ void solicita_usuario(Usuarios *users) {
 		cin >> senha;
 		if (!verificar_usuario_cadastrado(users,usuario,senha,mensagem_erro,verifica_primeiro_usuario)) {
 			cout << mensagem_erro;
-			if (situacao == NULL) {
+			if (verifica_primeiro_usuario == NULL) {
 				criar_user(users);
 			}
 		}
