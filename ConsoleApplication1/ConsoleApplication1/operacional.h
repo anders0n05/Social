@@ -80,9 +80,26 @@ void inserir_post(Posts *posts,string post,string usuario) {
 void ler_post(Posts *posts,string post,string usuario) {
 
 	
-	getline(cin, post);
-	//cin >> post;
+	
+	cin >> post;//implementar o cin.getline depois
 	inserir_post(posts,post, usuario);
 
+}
+
+void exibir_posts(Posts *posts) {
+
+	Post *aux;
+	aux = posts->inicio;
+	if (aux == NULL) {
+		cout << "Sem posts :(" << endl;
+	}
+	else {
+		while (aux != NULL) {
+			cout << "Autor: " << aux->assinatura << endl;
+			
+			cout <<  aux->post<< endl;
+			aux = aux->proximo;
+		}
+	}
 }
 #endif

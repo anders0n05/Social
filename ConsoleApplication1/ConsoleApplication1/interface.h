@@ -5,14 +5,15 @@
 #include"operacional.h"
 using namespace std;
 #include"validacoes.h"
-void criar_user(Usuarios *users);
-void Mostra_menu();
-void timeline(string usuario) {
-	Posts posts;
-	inicializa_post(&posts);
-	int opcao;
+void criar_user(Usuarios *users,Posts *posts);
+void Mostra_menu(Usuarios *users,Posts *posts);
+void timeline(string usuario,Posts *posts,Usuarios *users) {
+	
+	int opcao, opcao2;
 	char post[280];
-	cout << "endl";
+	cout << endl << "\t" << endl;
+	exibir_posts(posts);
+	cout << endl << "Usuario Logado:" << usuario << endl;
 	cout << "Digite 1 para incluir um Post ou 2 para voltar ao menu principal";
 	cin >> opcao;
 	switch (opcao)
@@ -20,11 +21,17 @@ void timeline(string usuario) {
 
 		case 1:
 			cout << "Post:" << endl;
-			ler_post(&posts,post,usuario);
-			break;
+			ler_post(posts,post,usuario);
+			cout << "<1> para voltar a timeline";
+				cin >> opcao2;
+				if (opcao2 == 1) {
+					timeline(usuario,posts,users);
+					system("pause");
+				}
+				break;
 		case 2:
 			system("cls");
-			Mostra_menu();
+			Mostra_menu(users,posts);
 			break;
 		default:
 			cout << endl << "opcao invalida";
@@ -33,7 +40,7 @@ void timeline(string usuario) {
 
 }
 
-void solicita_usuario(Usuarios *users) {
+void solicita_usuario(Usuarios *users,Posts *posts) {
 	string usuario, mensagem_erro;
 	int senha, verifica_primeiro_usuario;
 	
@@ -47,27 +54,29 @@ void solicita_usuario(Usuarios *users) {
 		cin >> senha;
 		if (!verificar_usuario_cadastrado(users,usuario,senha,mensagem_erro,verifica_primeiro_usuario)) {
 			cout << mensagem_erro;
+			system("pause");
+			system("cls");
 			if (verifica_primeiro_usuario == NULL) {
-				criar_user(users);
+				criar_user(users,posts);
 			}
 		}
 		else {
 			system("cls");
 			system("pause");
 			cout << endl << "Bem Vindo" << endl;
-			timeline(users->inicio->usuario);
+			timeline(usuario,posts,users);
 		}
 
 	} while (!verificar_usuario_cadastrado(users, usuario, senha, mensagem_erro,verifica_primeiro_usuario));
 }
 
-void login(Usuarios *users) {
+void login(Usuarios *users,Posts *posts) {
 
-	solicita_usuario(users);
+	solicita_usuario(users,posts);
 	
 }
 
-void criar_user(Usuarios *users) {
+void criar_user(Usuarios *users,Posts *posts) {
 	string user, nome_completo, erro;
 	char genero;
 	int senha1, senha2, dia_nascimento, mes_nascimento, ano_nascimento;
@@ -127,7 +136,7 @@ void criar_user(Usuarios *users) {
 			system("cls");
 			mostrarElementos(users);
 			system("pause");
-			login(users);
+			login(users,posts);
 	
 
 	
@@ -140,19 +149,18 @@ void criar_user(Usuarios *users) {
 
 
 
-void Mostra_menu() {
+void Mostra_menu(Usuarios *users,Posts *posts) {
 	int opcao;
-	Usuarios users;
-	inicializa_lista(&users);
+	
 	cout << "Selecione '1' para Logar, '2' para criar um usuario, '3' Sair" << endl;
 	cin >> opcao;
 	switch (opcao)
 	{
 	case 1:
-		login(&users);
+		login(users,posts);
 		break;
 	case 2:
-		criar_user(&users);
+		criar_user(users,posts);
 		break;
 	case 3:
 		system("end");

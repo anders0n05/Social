@@ -3,12 +3,15 @@
 
 #include "stdafx.h"
 #include "interface.h"
-
+#include"struct_usuario.h"
 
 int main()
 {
-	
-	Mostra_menu();
+	Usuarios users;
+	inicializa_lista(&users);
+	Posts posts;
+	inicializa_post(&posts);
+	Mostra_menu(&users,&posts);
 
 }
 

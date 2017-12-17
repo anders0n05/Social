@@ -118,7 +118,7 @@ bool verificar_usuario_cadastrado(Usuarios *allusers, string usuario, int senha,
 			
 			user = user->proximo;
 		}
-		mensagem_erro = "Não encontramos nenhum usuario com este nome";
+		mensagem_erro = "Nao encontramos nenhum usuario com este nome";
 		return false;
 	
 }
