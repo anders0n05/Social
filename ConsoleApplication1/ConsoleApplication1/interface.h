@@ -131,11 +131,10 @@ void criar_user(Usuarios *users,Posts *posts) {
 		} while (!valida_genero(genero, erro));
 			//adiciona_usuario(nome_completo, user, genero, senha1, dia_nascimento, mes_nascimento, ano_nascimento);
 			inserir_usuario(users, user, nome_completo, senha1,dia_nascimento, mes_nascimento, ano_nascimento, genero);
+			system("cls");
 			cout << "Cadastro criado com sucesso" << endl;
 			system("pause");
 			system("cls");
-			mostrarElementos(users);
-			system("pause");
 			login(users,posts);
 	
 
@@ -163,7 +162,7 @@ void Mostra_menu(Usuarios *users,Posts *posts) {
 		criar_user(users,posts);
 		break;
 	case 3:
-		system("end");
+		exit(0);
 		break;
 	default:
 		cout << endl<<"Digite uma Opcao Valida" << endl;
