@@ -6,6 +6,33 @@
 using namespace std;
 #include"validacoes.h"
 void criar_user(Usuarios *users);
+void Mostra_menu();
+void timeline(string usuario) {
+	Posts posts;
+	inicializa_post(&posts);
+	int opcao;
+	char post[280];
+	cout << "endl";
+	cout << "Digite 1 para incluir um Post ou 2 para voltar ao menu principal";
+	cin >> opcao;
+	switch (opcao)
+	{
+
+		case 1:
+			cout << "Post:" << endl;
+			ler_post(&posts,post,usuario);
+			break;
+		case 2:
+			system("cls");
+			Mostra_menu();
+			break;
+		default:
+			cout << endl << "opcao invalida";
+			break;
+	}
+
+}
+
 void solicita_usuario(Usuarios *users) {
 	string usuario, mensagem_erro;
 	int senha, verifica_primeiro_usuario;
@@ -28,7 +55,7 @@ void solicita_usuario(Usuarios *users) {
 			system("cls");
 			system("pause");
 			cout << endl << "Bem Vindo" << endl;
-			timeline();
+			timeline(users->inicio->usuario);
 		}
 
 	} while (!verificar_usuario_cadastrado(users, usuario, senha, mensagem_erro,verifica_primeiro_usuario));

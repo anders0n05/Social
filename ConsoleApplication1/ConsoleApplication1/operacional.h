@@ -3,7 +3,7 @@
 #include<iostream>
 #include <string>
 #include "struct_usuario.h"
-
+#include"STRUCT_POST.h"
 using namespace std;
 
 
@@ -33,7 +33,13 @@ else {
 
 
 }
+void inicializa_post(Posts *posts) {
 
+	posts->inicio = NULL;
+	posts->final = NULL;
+
+
+}
 void mostrarElementos(Usuarios *allusers) {
 
 	User *aux;
@@ -51,14 +57,32 @@ void mostrarElementos(Usuarios *allusers) {
 	}
 
 }
+void inserir_post(Posts *posts,string post,string usuario) {
+	Post *novo;
+	novo = new Post(post,usuario);
+	if (posts->inicio == NULL) {
+		posts->inicio = novo;
+		posts->final = novo;
+	}
+	else {
 
-void timeline() {
-	
-	cout << endl;
-	cout << "Esta indo bem";
+		posts->final->proximo = novo;
+		posts->final = novo;
+	}
+
+
+
 
 }
 
 
 
+void ler_post(Posts *posts,string post,string usuario) {
+
+	
+	getline(cin, post);
+	//cin >> post;
+	inserir_post(posts,post, usuario);
+
+}
 #endif
